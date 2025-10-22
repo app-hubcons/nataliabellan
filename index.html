@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Natália Bellan - Global Authority in Regulatory Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #FFFFFF;
+            color: #2F3640;
+            line-height: 1.6;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0056A2;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #2F3640;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #0056A2;
+        }
+
+        .btn-primary {
+            background: #0056A2;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #004080;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 86, 162, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00897B;
+            padding: 12px 28px;
+            border: 2px solid #00897B;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #00897B;
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 60px;
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: #2F3640;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            color: #B8860B;
+        }
+
+        .hero-content .subtitle {
+            font-size: 24px;
+            color: #2F3640;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #5A5A5A;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #0056A2 0%, #00897B 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 20px 60px rgba(0, 86, 162, 0.2);
+        }
+
+        .section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: #F8F9FA;
+        }
+
+        .section h2 {
+            font-size: 42px;
+            color: #2F3640;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .section h2 .gold {
+            color: #B8860B;
+        }
+
+        .section-subtitle {
+            font-size: 22px;
+            color: #0056A2;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .credential-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .credential-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 86, 162, 0.15);
+        }
+
+        .credential-card h3 {
+            font-size: 24px;
+            color: #B8860B;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .credential-card p {
+            color: #5A5A5A;
+            line-height: 1.8;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 4px solid #0056A2;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .expertise-card h3 {
+            font-size: 22px;
+            color: #0056A2;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .expertise-card p {
+            color: #5A5A5A;
+            line-height: 1.7;
+        }
+
+        .services-list {
+            display: grid;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-number {
+            display: inline-block;
+            background: #B8860B;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 28px;
+            color: #2F3640;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .service-item h4 {
+            font-size: 20px;
+            color: #0056A2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            color: #5A5A5A;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .global-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            color: #0056A2;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #5A5A5A;
+            font-weight: 600;
+        }
+
+        .partners-section {
+            margin-top: 60px;
+        }
+
+        .partners-section h3 {
+            font-size: 28px;
+            color: #2F3640;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .partners-list {
+            color: #5A5A5A;
+            line-height: 2;
+            font-size: 18px;
+        }
+
+        .cta-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #0056A2 0%, #00897B 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: #0056A2;
+            font-size: 18px;
+            padding: 16px 40px;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: #F8F9FA;
+            transform: translateY(-4px);
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-box h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-box p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: #2F3640;
+            color: white;
+            padding: 80px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #B8860B;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #B8860B;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .intro-text {
+            font-size: 20px;
+            line-height: 1.9;
+            color: #2F3640;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Dr. Natália Bellan</div>
+        <nav class="nav">
+            <a href="#credentials">Credentials</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#services">Services</a>
+            <a href="#global">Global Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Professor <span class="highlight">Dr. Natália Bellan</span></h1>
+                <p class="subtitle">Global Authority in Regulatory Science and Regulatory Intelligence</p>
+                <p>Ensure compliance, strategy, and scientific success for your business in the world's most challenging regulatory landscape.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">Get in Touch</a>
+                    <a href="https://sites.google.com/view/nataliabellanfoundation/home-english/courses" target="_blank" class="btn-secondary">Explore Courses</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    Professional Photo<br>Dr. Natália Bellan
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="credentials">
+        <h2>Authority Credentials - <span class="gold">A Unique Journey</span></h2>
+        <p class="section-subtitle">Pioneer in Creating a New Science for Global Success</p>
+        
+        <p class="intro-text">Dr. Natália Bellan is not just a consultant; she is the world's first and only PhD in Regulatory Science/Regulatory Intelligence. Her pioneering research, officially registered in 2011, created an entirely new professional discipline applied in the pharmaceutical industry and global regulatory agencies.</p>
+
+        <div class="credentials-grid">
+            <div class="credential-card">
+                <h3>Excellence in Education</h3>
+                <p>Technical degree in Civil Engineering (CEFET-SP), Pharmacist-Biochemist (UNESP/Brazil & USC/Spain), with Master's and Doctorate from USP.</p>
+            </div>
+            <div class="credential-card">
+                <h3>Reference Educator</h3>
+                <p>Over 20 years training and supervising more than 3,000 professionals in postgraduate programs in the regulatory area. Her publications and books are mandatory reference in pharmaceutical sciences courses worldwide.</p>
+            </div>
+            <div class="credential-card">
+                <h3>Pioneering & Recognition</h3>
+                <p>Started her revolutionary work in the field before age 30, earning her doctorate while managing pharmaceutical industry projects, teaching, and writing the foundations of the "New Science - Regulatory Intelligence with Business Strategy."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="expertise">
+        <h2>Areas of <span class="gold">Expertise</span></h2>
+        <p class="section-subtitle">Navigating the Most Complex Regulatory Landscapes</p>
+        
+        <p class="intro-text">Dr. Bellan specializes in the highest complexity and innovation sectors, providing expert guidance in:</p>
+
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h3>Pharmaceuticals</h3>
+                <p>Drugs, Biologics, Vaccines, Pain Management, Oncology, Rare Diseases.</p>
+            </div>
+            <div class="expertise-card">
+                <h3>Medical Technologies & Diagnostics</h3>
+                <p>Medical Devices, SaMD (Software as a Medical Device), IVD (In Vitro Diagnostics), Robotics, Orthopedics, Ophthalmology, Neuroscience.</p>
+            </div>
+            <div class="expertise-card">
+                <h3>Cutting-Edge Technologies</h3>
+                <p>Quantum Products, Cosmetics, Nutraceuticals, Reference Standards, Pharmacopeia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2>Professional Services - <span class="gold">Your Route to Success</span></h2>
+        <p class="section-subtitle">Complete Solutions for Global Ambitions</p>
+
+        <div class="services-list">
+            <div class="service-item">
+                <div class="service-number">1</div>
+                <h3>Strategic Consulting & Intelligence</h3>
+                
+                <h4>Regulatory Intelligence & Business Strategy</h4>
+                <p>Actionable insights on trends and regulations for CEOs, Advisory Boards, and Investors.</p>
+                
+                <h4>Regulatory Affairs for Complete Product Lifecycle</h4>
+                <p>Comprehensive support from development to post-commercialization.</p>
+                
+                <h4>High-Level Technical & Regulatory Defense</h4>
+                <p>Specialized representation in patent disputes, recalls, and legal proceedings.</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">2</div>
+                <h3>Medical Science Liaison (MSL) & Key Opinion Leader (KOL) Management</h3>
+                
+                <h4>MSL Strategy & Training</h4>
+                <p>Development of programs and training for MSL teams for effective scientific communication and regulatory compliance.</p>
+                
+                <h4>KOL Mapping & Engagement</h4>
+                <p>Identification, analysis, and strategic management of relationships with Key Opinion Leaders (KOLs) globally.</p>
+                
+                <h4>Scientific Exchange</h4>
+                <p>Facilitation of robust and ethical scientific dialogues between industry and the medical and scientific community.</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">3</div>
+                <h3>Science & Education</h3>
+                
+                <h4>Applied Scientific Research</h4>
+                <p>Support for global product registration and Clinical Trials.</p>
+                
+                <h4>Educational Program Development</h4>
+                <p>Creation and accreditation of programs from undergraduate to doctorate worldwide.</p>
+                
+                <h4>Online Corporate Training</h4>
+                <p>Customized courses aligned with FDA, EMA, ANVISA, etc., in multiple languages.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="global">
+        <h2>Global Experience & <span class="gold">Partnerships</span></h2>
+        <p class="section-subtitle">A Trusted Partner for Global Leaders</p>
+
+        <div class="global-stats">
+            <div class="stat-card">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3,000+</div>
+                <div class="stat-label">Professionals Trained</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Languages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+        </div>
+
+        <p class="intro-text" style="margin-top: 60px;">Italian Dr. Bellan's fluency in more than four languages and her international experience residing in various countries across Europe and the Americas provide a unique multicultural perspective for her clients.</p>
+
+        <div class="partners-section">
+            <h3>Selected Projects & Institutions:</h3>
+            <div class="partners-list">
+                <p><strong>Industrial Projects:</strong> Merck, AstraZeneca, United States Pharmacopeia (USP), Bristol Myers Squibb, Novartis, Pfizer, Samsung Health, Bausch&Lomb, Sanofi, and many others.</p>
+                <p><strong>Educational Institutions:</strong> UNESP, USP, University of Bordeaux (France), TOPRA (United Kingdom), and other leading universities and international organizations.</p>
+                <p><strong>Global Operations:</strong> Active in more than 30 countries across the Americas and Europe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Expand and Internationalize Your Business with Confidence?</h2>
+        <p>Leverage the world's leading expert in Regulatory Science to reduce risks in your strategy and accelerate your global growth.</p>
+        
+        <div class="cta-grid">
+            <div class="cta-box">
+                <h3>Get Expert Consultation</h3>
+                <p>Connect with Dr. Bellan for consulting, speaking engagements, training, and strategic partnerships.</p>
+                <a href="mailto:nb@nataliabellan.org" class="btn-primary">Contact: nb@nataliabellan.org</a>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Elevate Your Team's Skills</h3>
+                <p>Enroll in internationally certified online courses for beginners, intermediate, and advanced professionals with multilingual instruction.</p>
+                <a href="https://sites.google.com/view/nataliabellanfoundation/home-english/courses" target="_blank" class="btn-primary">Explore Course Catalog Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Explore Dr. Bellan's Foundational Publications</h3>
+                <div class="footer-links">
+                    <a href="https://www.amazon.com/stores/author/B0DQHCD34L/allbooks?ingress=0&visitId=76469d3f-dd96-44d6-b7e3-90ab49fa26d6&ccs_id=a9cffe37-f332-49ca-9378-a4e7b6a51d5" target="_blank">📚 Amazon Books</a>
+                    <a href="mailto:nb@nataliabellan.org">✉️ Email: nb@nataliabellan.org</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/nat%C3%A1lia-bellan-engtech-pharmd-mres-ph-d-15845823/" target="_blank">LinkedIn</a>
+                    <a href="https://www.researchgate.net/profile/Natalia-Bellan" target="_blank">ResearchGate</a>
+                    <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=3247BAF91F30E7D205EAA01A70572201.buscatextual_0" target="_blank">CNPQ</a>
+                    <a href="https://www.youtube.com/@drnataliabellanfoundation" target="_blank">YouTube</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Dr. Natália Bellan Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.credential-card, .expertise-card, .service-item, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
