@@ -147,15 +147,157 @@
 
         .hero-image-placeholder {
             width: 100%;
-            aspect-ratio: 3/4;
+            aspect-ratio: 1/1;
             background: linear-gradient(135deg, #0056A2 0%, #00897B 100%);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 18px;
+            position: relative;
+            overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 86, 162, 0.2);
+        }
+
+        .globe-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .globe {
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        .globe::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%);
+        }
+
+        .globe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-50%);
+        }
+
+        .meridian {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform-origin: center;
+        }
+
+        .meridian:nth-child(1) { transform: translateX(-50%) rotateY(30deg); }
+        .meridian:nth-child(2) { transform: translateX(-50%) rotateY(60deg); }
+        .meridian:nth-child(3) { transform: translateX(-50%) rotateY(120deg); }
+        .meridian:nth-child(4) { transform: translateX(-50%) rotateY(150deg); }
+
+        .regulatory-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .icon-orbit {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: float-icon 3s ease-in-out infinite;
+        }
+
+        .icon-orbit:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .icon-orbit:nth-child(2) {
+            top: 15%;
+            right: 10%;
+            animation-delay: 0.5s;
+        }
+
+        .icon-orbit:nth-child(3) {
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .icon-orbit:nth-child(4) {
+            bottom: 15%;
+            right: 15%;
+            animation-delay: 1.5s;
+        }
+
+        .icon-orbit:nth-child(5) {
+            top: 45%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .icon-orbit:nth-child(6) {
+            top: 50%;
+            right: 8%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .center-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            color: #0056A2;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
         .section {
@@ -502,7 +644,25 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-placeholder">
-                    Professional Photo<br>Dr. Natália Bellan
+                    <div class="globe-container">
+                        <div class="globe">
+                            <div class="meridian"></div>
+                            <div class="meridian"></div>
+                            <div class="meridian"></div>
+                            <div class="meridian"></div>
+                        </div>
+                        <div class="regulatory-icons">
+                            <div class="icon-orbit">⚖️</div>
+                            <div class="icon-orbit">🔬</div>
+                            <div class="icon-orbit">🏥</div>
+                            <div class="icon-orbit">📊</div>
+                            <div class="icon-orbit">🌍</div>
+                            <div class="icon-orbit">✓</div>
+                        </div>
+                        <div class="center-badge">
+                            Global Authority
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
